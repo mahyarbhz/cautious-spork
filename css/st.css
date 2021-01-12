@@ -1,0 +1,4 @@
+.box {
+    display: flex;
+    transform: rotate(10deg);
+}

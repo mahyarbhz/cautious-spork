@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo | Mahyar</title>
+        <link rel="stylesheet" href="css/prefixedstyle.css">
+        <link rel="icon" href="img/digital-letter-t-logo-alphabet-t-icon-design-vector-21719466.jpg" type="image/x-icon"/>
+        <link rel="shortcut icon" href="img/digital-letter-t-logo-alphabet-t-icon-design-vector-21719466.jpg" type="image/x-icon"/>
+    </head>
+    <body>
+        <div class="nav">
+            <!-- <input value="rgba(40,170,255,0.5)" data-jscolor=""> -->
+            <div class="nav-handler">
+                <div class="nav-item" id="nightModeToggler" onclick="toggleNightMode()">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="nav-item" >
+                    <i class="fas fa-wrench" id="optionModeToggler" onclick="toggleOptionMode()"></i>
+                </div>
+            </div>
+        </div>
+        <div class="options">
+            <div class="options-handler">
+                <div class="option option1">
+                    
+                </div>
+                <div class="option option1">
+                    bb
+                </div>
+            </div>
+        </div>
+        <!-- Animated Bg -->
+        <div class="animation-area">
+            <ul class="box-area">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="wrapper" id="todo-wrapper">
+            <header>Todo</header>
+            <div class="inputField">
+                <input type="text" placeholder="new todo">
+                <button onclick="addTask()"><i class="fas fa-plus"></i></button>
+            </div>
+            <ul class="todoList list">
+            </ul>
+            <div class="footer">
+                <span>You have <span class="pendingNum"></span> pending tasks</span>
+                <button>Clear All</button>
+            </div>
+        </div>
+        <div class="wrapper" id="done-wrapper">
+            <header>Done</header>
+            <ul class="doneList list">
+            </ul>
+            <div class="footer">
+                <span>You have <span class="doneNum"></span> done tasks</span>
+                <button id="clearDoneTasks">Clear All</button>
+            </div>
+        </div>
+        
+        
+        <!-- Scripts -->
+        <script src="js/fontawesome.js"></script>
+        <script src="js/jscolor.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+    </html>

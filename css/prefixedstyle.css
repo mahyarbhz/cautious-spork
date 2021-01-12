@@ -1,0 +1,339 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir/Vazir.eot');
+    src: url('../fonts/Vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Vazir/Vazir.woff2') format('woff2'),
+         url('../fonts/Vazir/Vazir.woff') format('woff'),
+         url('../fonts/Vazir/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: LaleZar;
+    src: url('../fonts/Lalezar-Regular.ttf') format('truetype'),
+         url('../fonts/Lalezar-Regular.otf');
+    font-weight: 100;
+    font-style: normal;
+}
+*{ 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Poppins', 'LaleZar', sans-serif;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body {
+    background: -webkit-gradient(linear, right top, left top, from(#8942a8), to(#ba382f));
+    background: -o-linear-gradient(right, #8942a8 0%, #ba382f 100%);
+    background: linear-gradient(to left, #8942a8 0%, #ba382f 100%);
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.nav {
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+.nav .nav-handler {
+    float: right;
+}
+.nav .nav-handler .nav-item {
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.wrapper {
+    margin: 40px auto 40px;
+    max-width: 400px;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    opacity: .9;
+}
+.wrapper header {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.wrapper .inputField {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 45px;
+    width: 100%;
+}
+.inputField input {
+    width: 85%;
+    height: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    border-radius: 5px;
+}
+.inputField button {
+    width: 60px;
+    height: 90%;
+    border: none;
+    outline: none;
+    background-color: #8E49E8;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 3px;
+    opacity: .6;
+    pointer-events: none;
+}
+.inputField button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.list {
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.list li {
+    padding-left: 10px;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #f2f2f2;
+    cursor: move;
+    overflow: hidden;
+}
+.list li .handler{
+    position: absolute;
+    right: -90px;
+    width: 90px;
+    border-radius: 0 4px 4px 0;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    background-color: #E74C3C;
+}
+.doneList li .delete{
+    position: absolute;
+    color: #fff;
+    width: 45px;
+    text-align: center;
+    background-color: #E74C3C;
+    cursor: pointer;
+}
+.list li .done{
+    position: absolute;
+    right: 0;
+    color: #fff;
+    width: 45px;
+    text-align: center;
+    background-color: #55a630;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.doneList li .done{
+    background-color: rgb(12, 105, 211);
+}
+.doneList li {
+    cursor: default;
+}
+.list li .delete{
+    position: absolute;
+    right: 45px;
+    color: #fff;
+    width: 45px;
+    text-align: center;
+    background-color: #E74C3C;
+    cursor: pointer;
+}
+.list li:hover .handler{
+    right: 0;
+}
+.list li:hover .done{
+    right: 0;
+}
+.list li:hover .delete{
+    right: 45px;
+}
+.wrapper .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 25px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.footer button {
+    border: none;
+    outline: none;
+    background-color: #fd3a69;
+    font-size: 16px;
+    padding: 5px 8px;
+    border-radius: 4px;
+    opacity: .6;
+    pointer-events: none;
+}
+.footer button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ~~~ Animated Bg ~~~ */
+.animation-area {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    margin: 0 !important;
+}
+.box-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.box-area li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255, .3);
+    -webkit-animation: animate 20s linear infinite;
+            animation: animate 20s linear infinite;
+    bottom: -150px;
+}
+
+.box-area li:nth-child(1) {
+    left: 86%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+}
+.box-area li:nth-child(2) {
+    left: 12%;
+    width: 30px;
+    height: 30px;
+    -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+}
+.box-area li:nth-child(3) {
+    left: 70%;
+    width: 30px;
+    height: 30px;
+    -webkit-animation-delay: 5.5s;
+            animation-delay: 5.5s;
+}
+.box-area li:nth-child(4) {
+    left: 44%;
+    width: 150px;
+    height: 150px;
+    -webkit-animation-delay: .5s;
+            animation-delay: .5s;
+    -webkit-animation-duration: 15s;
+            animation-duration: 15s;
+}
+.box-area li:nth-child(5) {
+    left: 65%;
+    width: 40px;
+    height: 40px;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+}
+.box-area li:nth-child(6) {
+    left: 18%;
+    width: 110px;
+    height: 110px;
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+    -webkit-animation-duration: 8s;
+            animation-duration: 8s;
+}
+@-webkit-keyframes animate {
+    0% {
+        -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 2px;
+    }
+    100% {
+        -webkit-transform: translateY(calc(-900px)) rotate(360deg);
+                transform: translateY(calc(-900px)) rotate(360deg);
+        opacity: 0;
+        border-radius: 15px;
+    }
+}
+@keyframes animate {
+    0% {
+        -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 2px;
+    }
+    100% {
+        -webkit-transform: translateY(calc(-900px)) rotate(360deg);
+                transform: translateY(calc(-900px)) rotate(360deg);
+        opacity: 0;
+        border-radius: 15px;
+    }
+}
+
+/* Dakmode Classes */
+.dark-bg {
+    background: -webkit-gradient(linear, right top, left top, from(#023047), to(#023e8a));
+    background: -o-linear-gradient(right, #023047 0%, #023e8a 100%);
+    background: linear-gradient(to left, #023047 0%, #023e8a 100%);
+}
+.dark-wrapper {
+    background-color: #03045e;
+    color: white;
+}
+.dark-wrapper li {
+    background-color: #0077b6;
+}
+.dropshadow-moon {
+    -webkit-filter: drop-shadow(8px 8px 4px red) invert(95%);
+            filter: drop-shadow(8px 8px 4px red) invert(95%);
+}
+.option {
+    display: none;
+    /* background-color: #fff; */
+    transition: all .25s ease;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+}
+.option1 {
+    top: 40%;
+    left: 5%;
+}
