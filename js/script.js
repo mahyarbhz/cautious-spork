@@ -6,7 +6,7 @@ const doneListUl = document.querySelector(".doneList");
 const deleteAllTodo = document.querySelector(".footer button");
 const deleteAllDone = document.querySelector("#clearDoneTasks");
 const nightModeToggler = document.querySelector("#nightModeToggler");
-const optionModeToggler = document.querySelector("#optionModeToggler");
+// const optionModeToggler = document.querySelector("#optionModeToggler");
 
 function pushItems(array, item) {
     localStorage.setItem(item, JSON.stringify(array));
@@ -27,7 +27,7 @@ inputBox.onkeyup = () => {
 
 showTasks();
 
-// Add tasks to ~Todo~
+// Add tasks to ~To Do~
 function addTask() {
     let userData = inputBox.value;
     let getLocalStorage = localStorage.getItem("New Todo");
@@ -61,7 +61,7 @@ function checkTask(index) {
     showTasks();
 }
 
-// Remove tasks from ~Done~ and add them to ~Todo~
+// Remove tasks from ~Done~ and add them to ~To Do~
 function uncheckTask(index) {
     let getDoneList = localStorage.getItem("Done");
     let getDoList = localStorage.getItem("New Todo");
@@ -79,7 +79,7 @@ function uncheckTask(index) {
     showTasks();
 }
 
-// Show tasks in ~Todo~ and ~Done~
+// Show tasks in ~To Do~ and ~Done~
 function showTasks() {
     //  Get Local Items
     let getDoList = localStorage.getItem("New Todo"); 
@@ -87,7 +87,7 @@ function showTasks() {
     
     let todoListLi= '';
     let doneListLi= '';
-    // Check ~ToDo~ exist
+    // Check ~To Do~ exist
     if (getDoList == null) {
         listDo = [];
     } else {
@@ -125,14 +125,14 @@ function showTasks() {
     });
     // make Done ul
     listDone.forEach((element, index) => {
-        doneListLi += `<li> ${element} <span class="handler"><span class="delete" onclick="deleteDoneTask(${index})"><i class="fas fa-trash"></i></span><span class="done" onclick="uncheckTask(${index})"><i class="fas fa-times"></i></span></span></li>`;
+        doneListLi += `<li class="sec-dropzone" id="${index}" draggable="true"> ${element} <span class="handler"><span class="delete" onclick="deleteDoneTask(${index})"><i class="fas fa-trash"></i></span><span class="done" onclick="uncheckTask(${index})"><i class="fas fa-times"></i></span></span></li>`;
     });
     todoList.innerHTML = todoListLi;
     doneListUl.innerHTML = doneListLi;
     inputBox.value= "";
 }
 
-// Delete Tasks from ~Todo~
+// Delete Tasks from ~To Do~
 function deleteTask(index) {
     let getLocalStorage = localStorage.getItem("New Todo");
     listArr = JSON.parse(getLocalStorage);
@@ -150,9 +150,9 @@ function deleteDoneTask(index) {
     showTasks();
 }
 
-// Delete all Tasks from ~Todo~
+// Delete all Tasks from ~To Do~
 deleteAllTodo.onclick = ()=>{
-    listArr = []; // Empty list to set ~New Todo~ empty
+    listArr = []; // Empty list to set ~New To Do~ empty
     pushItems(listArr, "New Todo");
     showTasks();
 }
@@ -164,7 +164,7 @@ deleteAllDone.onclick = ()=>{
     showTasks();
 }
 
-// Event key listener, when ~Enter~ pressed submit a ~Todo~
+// Event key listener, when ~Enter~ pressed submit a ~To Do~
 window.onload = ()=>{
     window.addEventListener(
       "keydown",
@@ -202,24 +202,70 @@ document.addEventListener("dragover", (event) => {
 
 document.addEventListener("drop", ({target}) => {
     if(target.className == "dropzone" && target.id !== id) {
-        sortedList = [];
-        dragged.remove( dragged );
-        for(let i = 0; i < list.length; i += 1) {
-            if(list[i] === target){
-                indexDrop = i;
+        // if (dragged.className == "sec-dropzone") {
+            dragged.classList.remove("sec-dropzone");
+            dragged.classList.add("dropzone");
+            sortedList = [];
+            lastList = dragged.parentNode.children;
+            dragged.remove( dragged );
+            for(let i = 0; i < list.length; i += 1) {
+                if(list[i] === target){
+                    indexDrop = i;
+                }
             }
-        }
-        // console.log(index, indexDrop);
-        if(index > indexDrop) {
-            target.before( dragged );
-        } else {
-            target.after( dragged );
-        }
-        for(let i = 0; i < list.length; i += 1) {
-            sortedList.push(list[i].innerText);
-        }
-        pushItems(sortedList, "New Todo");
-        // console.log(sortedList);
+            // console.log(index, indexDrop);
+            if(index > indexDrop) {
+                target.before( dragged );
+            } else {
+                target.after( dragged );
+            }
+            lastList.splice(dragged.index, 1);
+            for(let i = 0; i < list.length; i += 1) {
+                sortedList.push(list[i].innerText);
+            }
+            pushItems(sortedList, "Done");
+        // } else if (dragged.className == "dropzone") {
+        //     sortedList = [];
+        //     dragged.remove( dragged );
+        //     for(let i = 0; i < list.length; i += 1) {
+        //         if(list[i] === target){
+        //             indexDrop = i;
+        //         }
+        //     }
+        //     // console.log(index, indexDrop);
+        //     if(index > indexDrop) {
+        //         target.before( dragged );
+        //     } else {
+        //         target.after( dragged );
+        //     }
+        //     for(let i = 0; i < list.length; i += 1) {
+        //         sortedList.push(list[i].innerText);
+        //     }
+        //     pushItems(sortedList, "~~~~~~~~~~");
+        // }
+    } else if(target.className == "sec-dropzone" && target.id !== id) {
+        // if (dragged.className == "sec-dropzone") {
+            sortedList = [];
+            dragged.remove( dragged );
+            for(let i = 0; i < list.length; i += 1) {
+                if(list[i] === target){
+                    indexDrop = i;
+                }
+            }
+            // console.log(index, indexDrop);
+            if(index > indexDrop) {
+                target.before( dragged );
+            } else {
+                target.after( dragged );
+            }
+            for(let i = 0; i < list.length; i += 1) {
+                sortedList.push(list[i].innerText);
+            }
+            pushItems(sortedList, "Done");
+        // } else if(dragged.className == "dropzone") {
+        //     dragged.classList.remove("dropzone");
+        //     dragged.classList.add("sec-dropzone");
+        // }
     }
     target.style.opacity = 1;
 });
@@ -230,29 +276,30 @@ function toggleNightMode() {
     if (!nightmode) {
         nightmode = true;
         nightModeToggler.style.color= "gray";
-        optionModeToggler.style.color= "gray";
+        // optionModeToggler.style.color= "gray";
         nightModeToggler.innerHTML = `<i class="fas fa-moon">`;
         nightModeToggler.classList.add("dropshadow-moon");
     } else {
         nightmode = false;
         nightModeToggler.style.color= "white";
-        optionModeToggler.style.color= "white";
+        // optionModeToggler.style.color= "white";
         nightModeToggler.innerHTML = `<i class="fas fa-sun">`;
         nightModeToggler.classList.remove("dropshadow-moon");
     }
     document.querySelector("#todo-wrapper").classList.toggle("dark-wrapper");
     document.querySelector("#done-wrapper").classList.toggle("dark-wrapper");
     document.querySelector("body").classList.toggle("dark-bg");
+    document.querySelector(".header h1").classList.toggle("header-dark");
 }
 toggleNightMode();
 
-var optionmode = false;
-function toggleOptionMode() {
-    if (optionmode) {
-        optionmode = false;
-        document.querySelector(".option1").style.display= "none";
-    } else {
-        optionmode = true;
-        document.querySelector(".option1").style.display= "block";
-    }
-}
+// var optionmode = false;
+// function toggleOptionMode() {
+//     if (optionmode) {
+//         optionmode = false;
+//         document.querySelector(".option1").style.display= "none";
+//     } else {
+//         optionmode = true;
+//         document.querySelector(".option1").style.display= "block";
+//     }
+// }
