@@ -32,12 +32,12 @@
     box-sizing: border-box;
 }
 body {
-    background: -webkit-gradient(linear, right top, left top, from(#8942a8), to(#ba382f));
-    background: -o-linear-gradient(right, #8942a8 0%, #ba382f 100%);
-    background: linear-gradient(to left, #8942a8 0%, #ba382f 100%);
     -webkit-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+    background: -webkit-gradient(linear, right top, left top, from(#023047), to(#023e8a));
+    background: -o-linear-gradient(right, #023047 0%, #023e8a 100%);
+    background: linear-gradient(to left, #023047 0%, #023e8a 100%);
 }
 .nav {
     position: absolute;
@@ -56,11 +56,12 @@ body {
     transition: all .5s ease;
 }
 .wrapper {
+    background-color: #03045e;
+    color: white;
     margin: 40px auto 40px;
     max-width: 400px;
     width: 100%;
     border: none;
-    background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     -webkit-transition: all .25s ease;
@@ -118,7 +119,8 @@ body {
     position: relative;
     border-radius: 4px;
     margin-bottom: 8px;
-    background-color: #f2f2f2;
+    background-color: #0077b6;
+    color: white;
     cursor: move;
     overflow: hidden;
 }
@@ -134,7 +136,7 @@ body {
 }
 .doneList li .delete{
     position: absolute;
-    color: #fff;
+    color: black;
     width: 45px;
     text-align: center;
     background-color: #E74C3C;
@@ -310,22 +312,24 @@ body {
 }
 
 /* Dakmode Classes */
-.dark-bg {
-    background: -webkit-gradient(linear, right top, left top, from(#023047), to(#023e8a));
-    background: -o-linear-gradient(right, #023047 0%, #023e8a 100%);
-    background: linear-gradient(to left, #023047 0%, #023e8a 100%);
+.light-bg {
+    background: -webkit-gradient(linear, right top, left top, from(#8942a8), to(#ba382f));
+    background: -o-linear-gradient(right, #8942a8 0%, #ba382f 100%);
+    background: linear-gradient(to left, #8942a8 0%, #ba382f 100%);
 }
-.dark-wrapper {
-    background-color: #03045e;
-    color: white;
+.light-wrapper {
+    background-color: #fff;
+    color: #000;
 }
-.dark-wrapper li {
-    background-color: #0077b6;
+.light-wrapper li {
+    background-color: #ddd;
+    color: black;
 }
 .dropshadow-moon {
     -webkit-filter: drop-shadow(8px 8px 4px red) invert(95%);
     filter: drop-shadow(8px 8px 4px red) invert(95%);
 }
+/* Header */
 .header{
     position: relative;
     display: -webkit-box;
@@ -337,8 +341,6 @@ body {
     opacity: .8;
 }
 .header h1 {
-    background-color: #fff;
-    color: #000;
     max-width: 400px;
     width: 100%;
     border-radius: 0 0 15px 15px;
@@ -349,10 +351,12 @@ body {
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
-}
-.header-dark {
     background-color: #03045e !important;
     color: #fff !important;
+}
+.header-dark {
+    background-color: #fff;
+    color: #000;
 }
 @media only screen and (max-width: 1200px) {
     .header h1 {

@@ -1,17 +1,7 @@
-//  Query selectors
-const inputBox = document.querySelector(".inputField input");
-const addBtn = document.querySelector(".inputField button");
-const todoList = document.querySelector(".todoList");
-const doneListUl = document.querySelector(".doneList");
-const deleteAllTodo = document.querySelector(".footer button");
-const deleteAllDone = document.querySelector("#clearDoneTasks");
-const nightModeToggler = document.querySelector("#nightModeToggler");
-// const optionModeToggler = document.querySelector("#optionModeToggler");
-
 function pushItems(array, item) {
+    // console.log(array);
     localStorage.setItem(item, JSON.stringify(array));
 }
-document.querySelector(".animation-area").classList.add(".yellow-filter");
 // Control input active
 var isAnythingInInput = false;
 inputBox.onkeyup = () => {
@@ -119,7 +109,7 @@ function showTasks() {
         deleteAllDone.classList.remove("active");
         doneListLi = `<li style="background-color:rgba(255, 60, 60, 0.6);"> There is no task done </li>`;
     }
-    // make Todo ul
+    // make To do ul
     listDo.forEach((element, index) => {
         todoListLi += `<li class="dropzone" id="${index}" draggable="true"> ${element} <span class="handler"><span class="delete" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span><span class="done" onclick="checkTask(${index})"><i class="fas fa-check"></i></span></span></li>`;
     });
@@ -203,28 +193,8 @@ document.addEventListener("dragover", (event) => {
 document.addEventListener("drop", ({target}) => {
     if(target.className == "dropzone" && target.id !== id) {
         // if (dragged.className == "sec-dropzone") {
-            dragged.classList.remove("sec-dropzone");
-            dragged.classList.add("dropzone");
-            sortedList = [];
-            lastList = dragged.parentNode.children;
-            dragged.remove( dragged );
-            for(let i = 0; i < list.length; i += 1) {
-                if(list[i] === target){
-                    indexDrop = i;
-                }
-            }
-            // console.log(index, indexDrop);
-            if(index > indexDrop) {
-                target.before( dragged );
-            } else {
-                target.after( dragged );
-            }
-            lastList.splice(dragged.index, 1);
-            for(let i = 0; i < list.length; i += 1) {
-                sortedList.push(list[i].innerText);
-            }
-            pushItems(sortedList, "Done");
-        // } else if (dragged.className == "dropzone") {
+        //     dragged.classList.remove("sec-dropzone");
+        //     dragged.classList.add("dropzone");
         //     sortedList = [];
         //     dragged.remove( dragged );
         //     for(let i = 0; i < list.length; i += 1) {
@@ -241,7 +211,27 @@ document.addEventListener("drop", ({target}) => {
         //     for(let i = 0; i < list.length; i += 1) {
         //         sortedList.push(list[i].innerText);
         //     }
-        //     pushItems(sortedList, "~~~~~~~~~~");
+        //     pushItems(sortedList, "New To do");
+        // } else if (dragged.className == "dropzone") {
+            sortedList = [];
+            dragged.remove( dragged );
+            for(let i = 0; i < list.length; i += 1) {
+                if(list[i] === target){
+                    indexDrop = i;
+                }
+            }
+            // console.log(index, indexDrop);
+            if(index > indexDrop) {
+                target.before( dragged );
+            } else {
+                target.after( dragged );
+            }
+            for(let i = 0; i < list.length; i += 1) {
+                sortedList.push(list[i].innerText);
+                // console.log(sortedList);
+            }
+            pushItems(sortedList, "New Todo");
+            showTasks();
         // }
     } else if(target.className == "sec-dropzone" && target.id !== id) {
         // if (dragged.className == "sec-dropzone") {
@@ -262,6 +252,7 @@ document.addEventListener("drop", ({target}) => {
                 sortedList.push(list[i].innerText);
             }
             pushItems(sortedList, "Done");
+            showTasks();
         // } else if(dragged.className == "dropzone") {
         //     dragged.classList.remove("dropzone");
         //     dragged.classList.add("sec-dropzone");
@@ -271,27 +262,33 @@ document.addEventListener("drop", ({target}) => {
 });
 
 // Night Mode
-let nightmode = false;
+let nightmode = true;
+if (nightmode) {
+    nightmode = false;
+    nightModeToggler.style.color= "gray";
+    // optionModeToggler.style.color= "gray";
+    nightModeToggler.innerHTML = `<i class="fas fa-moon">`;
+    nightModeToggler.classList.add("dropshadow-moon");
+}
 function toggleNightMode() {
     if (!nightmode) {
         nightmode = true;
-        nightModeToggler.style.color= "gray";
-        // optionModeToggler.style.color= "gray";
-        nightModeToggler.innerHTML = `<i class="fas fa-moon">`;
-        nightModeToggler.classList.add("dropshadow-moon");
-    } else {
-        nightmode = false;
         nightModeToggler.style.color= "white";
         // optionModeToggler.style.color= "white";
         nightModeToggler.innerHTML = `<i class="fas fa-sun">`;
         nightModeToggler.classList.remove("dropshadow-moon");
+    } else {
+        nightmode = false;
+        nightModeToggler.style.color= "gray";
+        // optionModeToggler.style.color= "gray";
+        nightModeToggler.innerHTML = `<i class="fas fa-moon">`;
+        nightModeToggler.classList.add("dropshadow-moon");
     }
-    document.querySelector("#todo-wrapper").classList.toggle("dark-wrapper");
-    document.querySelector("#done-wrapper").classList.toggle("dark-wrapper");
-    document.querySelector("body").classList.toggle("dark-bg");
+    document.querySelector("#todo-wrapper").classList.toggle("light-wrapper");
+    document.querySelector("#done-wrapper").classList.toggle("light-wrapper");
+    document.querySelector("body").classList.toggle("light-bg");
     document.querySelector(".header h1").classList.toggle("header-dark");
 }
-toggleNightMode();
 
 // var optionmode = false;
 // function toggleOptionMode() {
