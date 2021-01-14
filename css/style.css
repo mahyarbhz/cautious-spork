@@ -24,8 +24,8 @@
     box-sizing: border-box;
 }
 body {
-    background: linear-gradient(to left, #8942a8 0%, #ba382f 100%);
     transition: all .5s ease;
+    background: linear-gradient(to left, #023047 0%, #023e8a 100%);
 }
 .nav {
     position: absolute;
@@ -42,11 +42,12 @@ body {
     transition: all .5s ease;
 }
 .wrapper {
+    background-color: #03045e;
+    color: white;
     margin: 40px auto 40px;
     max-width: 400px;
     width: 100%;
     border: none;
-    background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     transition: all .25s ease;
@@ -100,7 +101,8 @@ body {
     position: relative;
     border-radius: 4px;
     margin-bottom: 8px;
-    background-color: #f2f2f2;
+    background-color: #0077b6;
+    color: white;
     cursor: move;
     overflow: hidden;
 }
@@ -114,7 +116,7 @@ body {
 }
 .doneList li .delete{
     position: absolute;
-    color: #fff;
+    color: black;
     width: 45px;
     text-align: center;
     background-color: #E74C3C;
@@ -258,19 +260,21 @@ body {
 }
 
 /* Dakmode Classes */
-.dark-bg {
-    background: linear-gradient(to left, #023047 0%, #023e8a 100%);
+.light-bg {
+    background: linear-gradient(to left, #8942a8 0%, #ba382f 100%);
 }
-.dark-wrapper {
-    background-color: #03045e;
-    color: white;
+.light-wrapper {
+    background-color: #fff;
+    color: #000;
 }
-.dark-wrapper li {
-    background-color: #0077b6;
+.light-wrapper li {
+    background-color: #ddd;
+    color: black;
 }
 .dropshadow-moon {
     filter: drop-shadow(8px 8px 4px red) invert(95%);
 }
+/* Header */
 .header{
     position: relative;
     display: flex;
@@ -279,8 +283,6 @@ body {
     opacity: .8;
 }
 .header h1 {
-    background-color: #fff;
-    color: #000;
     max-width: 400px;
     width: 100%;
     border-radius: 0 0 15px 15px;
@@ -289,10 +291,12 @@ body {
     font-size: 2vw;
     font-weight: 100;
     transition: all 1s ease;
-}
-.header-dark {
     background-color: #03045e !important;
     color: #fff !important;
+}
+.header-dark {
+    background-color: #fff;
+    color: #000;
 }
 @media only screen and (max-width: 1200px) {
     .header h1 {
