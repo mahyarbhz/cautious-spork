@@ -4,7 +4,8 @@
     <a href='https://github.com/MahyarNV/cautious-spork'><img src='https://github.com/MahyarNV/cautious-spork/blob/main/img/github-spork.png' width='600' alt='Mujocso Logo' /></a>
   </p>
 </div>
-# cautious-spork
+
+## cautious-spork
 
 **1.6** \
     _This is a basic todo app at this version ~~(1.5)~~\
