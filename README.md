@@ -8,6 +8,6 @@
 ## cautious-spork
 
 **1.6** \
-    _This is a basic todo app at this version ~~(1.5)~~\
+    A simple todo app, (at this version) ~~(1.5)~~\
     You can give me any proposal to help me make it better :))_\
     to give me your idea you can submit <a href="https://github.com/MahyarNV/cautious-spork/issues/new">a new issue</a>
