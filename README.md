@@ -1,7 +1,7 @@
 <div align='center'>
   <br />
   <p>
-    <a href='https://github.com/MahyarNV/cautious-spork'><img src='https://github.com/MahyarNV/cautious-spork/blob/main/img/github-spork.png' width='600' alt='Mujocso Logo' /></a>
+    <a href='https://github.com/MahyarNV/cautious-spork'><img src='https://github.com/MahyarNV/cautious-spork/blob/main/img/github-spork.png' width='600' alt='Cautious Logo' /></a>
   </p>
 </div>
 
