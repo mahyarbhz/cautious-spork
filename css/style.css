@@ -137,6 +137,7 @@ body {
 }
 .doneList li {
     cursor: default;
+    text-decoration: line-through;
 }
 .list li .delete{
     position: absolute;
