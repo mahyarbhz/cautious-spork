@@ -100,14 +100,14 @@ function showTasks() {
         todoListLi = "";
     } else {
         deleteAllTodo.classList.remove("active");
-        todoListLi = `<li style="background-color:rgba(255, 60, 60, 0.6);"> There is no todo </li>`;
+        todoListLi = `<li class="emptyLi"> There is no todo </li>`;
     }
     if(listDone.length > 0) {
         deleteAllDone.classList.add("active");
         doneListLi = "";
     } else {
         deleteAllDone.classList.remove("active");
-        doneListLi = `<li style="background-color:rgba(255, 60, 60, 0.6);"> There is no task done </li>`;
+        doneListLi = `<li class="emptyLi"> There is no task done </li>`;
     }
     // make To do ul
     listDo.forEach((element, index) => {
