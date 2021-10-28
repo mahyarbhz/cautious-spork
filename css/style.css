@@ -133,11 +133,14 @@ body {
     cursor: pointer;
 }
 .doneList li .done{
-    background-color: rgb(12, 105, 211);
+    background-color: rgba(12, 105, 211, 1);
 }
 .doneList li {
     cursor: default;
     text-decoration: line-through;
+}
+.list li.emptyLi {
+    background-color:rgba(255, 60, 60, 0.6);
 }
 .list li .delete{
     position: absolute;
