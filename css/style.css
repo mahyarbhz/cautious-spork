@@ -141,6 +141,7 @@ body {
 }
 .list li.emptyLi {
     background-color:rgba(255, 60, 60, 0.6);
+    text-decoration: none;
 }
 .list li .delete{
     position: absolute;
