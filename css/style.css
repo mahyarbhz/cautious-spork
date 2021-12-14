@@ -139,9 +139,10 @@ body {
     cursor: default;
     text-decoration: line-through;
 }
-.list li.emptyLi {
+li.emptyLi {
     background-color:rgba(255, 60, 60, 0.6);
     text-decoration: none;
+    cursor: default;
 }
 .list li .delete{
     position: absolute;
